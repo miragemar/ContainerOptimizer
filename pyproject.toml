@@ -1,0 +1,29 @@
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "containeroptimizer"
+version = "0.1.0"
+description = "AI Dockerfile Builder and Security Auditor"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-genai>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+tui = ["textual>=0.80.0"]
+
+[project.scripts]
+containeroptimizer = "containeroptimizer.cli:main"
+containeroptimizer-ui = "containeroptimizer.tui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
